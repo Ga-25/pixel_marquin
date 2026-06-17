@@ -168,11 +168,6 @@
       </div>
     </div>
 
-    <div class="support-section">
-      <div class="support-title">🆘 Não recebeu em 10 minutos?</div>
-      <div class="support-text">Nossa equipe está sempre pronta para ajudar! Entre em contato conosco imediatamente.</div>
-      <a class="support-btn" target="_blank" href="https://wa.me/557788529607?text=Ol%C3%A1!%20Finalizei%20meu%20cadastro%20na%20Alpha Tec%20mas%20ainda%20n%C3%A3o%20recebi%20os%20dados%20de%20acesso.%20Podem%20me%20ajudar%3F">📞 CONTATO EMERGENCIAL</a>
-    </div>
 
     <div class="footer">
       <div class="footer-text">© 2024 Alpha Tec. Todos os direitos reservados.</div>
@@ -186,7 +181,7 @@
 
   <script>
     const CONFIG = {
-    whatsappNumber: '557788529607'
+    whatsappNumber: ''
   };
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -276,18 +271,7 @@ function initFinalPixelEvents(){
         setTimeout(()=> toast('💡 Adicione esta página aos favoritos!', 'info'), 8000);
       }
       // Share button (se suportado)
-      if(navigator.share){
-        const btn=document.createElement('button');
-        btn.textContent='📤 Compartilhar Sucesso';
-        Object.assign(btn.style,{position:'fixed',top:'16px',right:'16px',background:'linear-gradient(45deg,#22c55e,#16a34a)',color:'#fff',border:'none',padding:'10px 14px',borderRadius:'999px',fontWeight:'800',cursor:'pointer',zIndex:'1000',boxShadow:'0 8px 24px rgba(0,0,0,.25)'});
-        btn.onclick=async()=>{
-          try{
-            await navigator.share({title:'Alpha Tec - Cadastro Ativado!',text:'Acabei de ativar minha assinatura Alpha Tec Premium! 🎉',url:location.href});
-            if(typeof fbq!=='undefined') fbq('trackCustom','SuccessPageShared');
-          }catch(e){ console.log('Share cancelado',e); }
-        };
-        document.body.appendChild(btn);
-      }
+
       // Conectividade
       function checkConnection(){
         if(navigator.onLine) toast('✅ Conexão estável detectada','success');
